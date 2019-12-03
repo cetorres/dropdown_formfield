@@ -12,6 +12,7 @@ class DropDownFormField extends FormField<dynamic> {
   final String textField;
   final String valueField;
   final Function onChanged;
+  final bool filled;
 
   DropDownFormField(
       {FormFieldSetter<dynamic> onSaved,
@@ -25,7 +26,8 @@ class DropDownFormField extends FormField<dynamic> {
       this.dataSource,
       this.textField,
       this.valueField,
-      this.onChanged})
+      this.onChanged,
+      this.filled = true})
       : super(
           onSaved: onSaved,
           validator: validator,
@@ -39,7 +41,7 @@ class DropDownFormField extends FormField<dynamic> {
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
                       labelText: titleText,
-                      filled: true,
+                      filled: filled,
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<dynamic>(
