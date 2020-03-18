@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 padding: EdgeInsets.all(16),
                 child: DropDownFormField(
-                  titleText: 'My workout',
+                 inputDecoration: OutlinedDropDownDecoration(labelText:"Welcome to island"),
                   hintText: 'Please choose one',
                   value: _myActivity,
                   onSaved: (value) {

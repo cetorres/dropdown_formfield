@@ -13,6 +13,10 @@ class DropDownFormField extends FormField<dynamic> {
   final String valueField;
   final Function onChanged;
   final bool filled;
+  final bool outlined;
+  final bool rounded;
+  final InputDecoration inputDecoration;
+
 
   DropDownFormField(
       {FormFieldSetter<dynamic> onSaved,
@@ -27,23 +31,83 @@ class DropDownFormField extends FormField<dynamic> {
       this.textField,
       this.valueField,
       this.onChanged,
-      this.filled = true})
+        this.filled = true,
+        this.inputDecoration,
+        this.outlined,
+        this.rounded
+      })
       : super(
           onSaved: onSaved,
           validator: validator,
           autovalidate: autovalidate,
           initialValue: value == '' ? null : value,
           builder: (FormFieldState<dynamic> state) {
+            if (outlined == null && rounded == null) {
+              inputDecoration = InputDecoration(
+                contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
+                labelText: titleText,
+                filled: filled,
+              );
+            } else {
+              assert(outlined ==
+                  rounded, "rounded and outlined must never be equal", );
+              if (rounded) {
+                inputDecoration = InputDecoration(
+                  labelStyle: TextStyle(
+                    fontSize: 14,
+                    textBaseline: TextBaseline.ideographic,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      gapPadding: 0,
+                      borderSide: BorderSide(
+                          color: Colors.blue,
+                          width: 1,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(25)),
+                  border: OutlineInputBorder(
+                      gapPadding: 1,
+                      borderSide: BorderSide(
+                          color: Colors.blue,
+                          width: 1,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(30)),
+                  contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
+                  labelText: titleText,
+                  filled: filled,
+                );
+              } else if (outlined) {
+                inputDecoration = InputDecoration(
+                  labelStyle: TextStyle(
+                    fontSize: 14,
+                    textBaseline: TextBaseline.ideographic,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      gapPadding: 0,
+                      borderSide: BorderSide(
+                          color: Colors.blue,
+                          width: 1,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(0)),
+                  border: OutlineInputBorder(
+                      gapPadding: 1,
+                      borderSide: BorderSide(
+                          color: Colors.blue,
+                          width: 1,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(0)),
+                  contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
+                  labelText: titleText,
+                  filled: filled,
+                );
+              }
+            }
+
             return Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   InputDecorator(
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
-                      labelText: titleText,
-                      filled: filled,
-                    ),
+                    decoration: inputDecoration,
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<dynamic>(
                         hint: Text(
