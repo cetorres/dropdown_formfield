@@ -21,6 +21,36 @@ class _MyHomePageState extends State<MyHomePage> {
   String _myActivity;
   String _myActivityResult;
   final formKey = new GlobalKey<FormState>();
+  List dataSource=[
+    {
+      "display": "Running",
+      "value": "Running",
+    },
+    {
+      "display": "Climbing",
+      "value": "Climbing",
+    },
+    {
+      "display": "Walking",
+      "value": "Walking",
+    },
+    {
+      "display": "Swimming",
+      "value": "Swimming",
+    },
+    {
+      "display": "Soccer Practice",
+      "value": "Soccer Practice",
+    },
+    {
+      "display": "Baseball Practice",
+      "value": "Baseball Practice",
+    },
+    {
+      "display": "Football Practice",
+      "value": "Football Practice",
+    },
+  ];
 
   @override
   void initState() {
@@ -32,7 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
   _saveForm() {
     var form = formKey.currentState;
     if (form.validate()) {
-      form.save();
       setState(() {
         _myActivityResult = _myActivity;
       });
@@ -67,36 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       _myActivity = value;
                     });
                   },
-                  dataSource: [
-                    {
-                      "display": "Running",
-                      "value": "Running",
-                    },
-                    {
-                      "display": "Climbing",
-                      "value": "Climbing",
-                    },
-                    {
-                      "display": "Walking",
-                      "value": "Walking",
-                    },
-                    {
-                      "display": "Swimming",
-                      "value": "Swimming",
-                    },
-                    {
-                      "display": "Soccer Practice",
-                      "value": "Soccer Practice",
-                    },
-                    {
-                      "display": "Baseball Practice",
-                      "value": "Baseball Practice",
-                    },
-                    {
-                      "display": "Football Practice",
-                      "value": "Football Practice",
-                    },
-                  ],
+                  dataSource: dataSource,
                   textField: 'display',
                   valueField: 'value',
                 ),
@@ -117,36 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       _myActivity = value;
                     });
                   },
-                  dataSource: [
-                    {
-                      "display": "Running",
-                      "value": "Running",
-                    },
-                    {
-                      "display": "Climbing",
-                      "value": "Climbing",
-                    },
-                    {
-                      "display": "Walking",
-                      "value": "Walking",
-                    },
-                    {
-                      "display": "Swimming",
-                      "value": "Swimming",
-                    },
-                    {
-                      "display": "Soccer Practice",
-                      "value": "Soccer Practice",
-                    },
-                    {
-                      "display": "Baseball Practice",
-                      "value": "Baseball Practice",
-                    },
-                    {
-                      "display": "Football Practice",
-                      "value": "Football Practice",
-                    },
-                  ],
+                  dataSource: dataSource,
                   textField: 'display',
                   valueField: 'value',
                 ),
@@ -168,36 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       _myActivity = value;
                     });
                   },
-                  dataSource: [
-                    {
-                      "display": "Running",
-                      "value": "Running",
-                    },
-                    {
-                      "display": "Climbing",
-                      "value": "Climbing",
-                    },
-                    {
-                      "display": "Walking",
-                      "value": "Walking",
-                    },
-                    {
-                      "display": "Swimming",
-                      "value": "Swimming",
-                    },
-                    {
-                      "display": "Soccer Practice",
-                      "value": "Soccer Practice",
-                    },
-                    {
-                      "display": "Baseball Practice",
-                      "value": "Baseball Practice",
-                    },
-                    {
-                      "display": "Football Practice",
-                      "value": "Football Practice",
-                    },
-                  ],
+                  dataSource: dataSource,
                   textField: 'display',
                   valueField: 'value',
                 ),
