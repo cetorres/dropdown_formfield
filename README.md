@@ -20,6 +20,7 @@ A dropdown form field using a dropdown button inside a form field.
 ## Example
 
 ```dart
+import 'package:flutter/material.dart';
 import 'package:dropdown_formfield/dropdown_formfield.dart';
 
 void main() => runApp(MyApp());
@@ -75,7 +76,108 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 padding: EdgeInsets.all(16),
                 child: DropDownFormField(
+                 inputDecoration: OutlinedDropDownDecoration(labelText:"Welcome to island"),
+                  hintText: 'Please choose one',
+                  value: _myActivity,
+                  onSaved: (value) {
+                    setState(() {
+                      _myActivity = value;
+                    });
+                  },
+                  onChanged: (value) {
+                    setState(() {
+                      _myActivity = value;
+                    });
+                  },
+                  dataSource: [
+                    {
+                      "display": "Running",
+                      "value": "Running",
+                    },
+                    {
+                      "display": "Climbing",
+                      "value": "Climbing",
+                    },
+                    {
+                      "display": "Walking",
+                      "value": "Walking",
+                    },
+                    {
+                      "display": "Swimming",
+                      "value": "Swimming",
+                    },
+                    {
+                      "display": "Soccer Practice",
+                      "value": "Soccer Practice",
+                    },
+                    {
+                      "display": "Baseball Practice",
+                      "value": "Baseball Practice",
+                    },
+                    {
+                      "display": "Football Practice",
+                      "value": "Football Practice",
+                    },
+                  ],
+                  textField: 'display',
+                  valueField: 'value',
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(16),
+                child: DropDownFormField(
                   titleText: 'My workout',
+                  hintText: 'Please choose one',
+                  value: _myActivity,
+                  onSaved: (value) {
+                    setState(() {
+                      _myActivity = value;
+                    });
+                  },
+                  onChanged: (value) {
+                    setState(() {
+                      _myActivity = value;
+                    });
+                  },
+                  dataSource: [
+                    {
+                      "display": "Running",
+                      "value": "Running",
+                    },
+                    {
+                      "display": "Climbing",
+                      "value": "Climbing",
+                    },
+                    {
+                      "display": "Walking",
+                      "value": "Walking",
+                    },
+                    {
+                      "display": "Swimming",
+                      "value": "Swimming",
+                    },
+                    {
+                      "display": "Soccer Practice",
+                      "value": "Soccer Practice",
+                    },
+                    {
+                      "display": "Baseball Practice",
+                      "value": "Baseball Practice",
+                    },
+                    {
+                      "display": "Football Practice",
+                      "value": "Football Practice",
+                    },
+                  ],
+                  textField: 'display',
+                  valueField: 'value',
+                ),
+              ),
+
+              Container(
+                padding: EdgeInsets.all(16),
+                child: DropDownFormField(
+                  inputDecoration: RoundedDropDownDecoration(labelText:"Welcome to island"),
                   hintText: 'Please choose one',
                   value: _myActivity,
                   onSaved: (value) {
@@ -140,6 +242,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
 ```
 
 ## License
