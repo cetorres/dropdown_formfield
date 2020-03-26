@@ -1,8 +1,7 @@
-name: dropdown_formfield
-description: A dropdown form field using a dropdown button inside a form field.
-version: 0.1.1
-author: Carlos E. Torres <cetorres@cetorres.com>
-homepage: https://github.com/cetorres/dropdown_formfield
+name: material_dropdown_formfield
+description: A material dropdown form field using a dropdown button inside a form field.
+version: 0.1.0
+homepage: https://github.com/shivanshtalwar0/dropdown_formfield
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

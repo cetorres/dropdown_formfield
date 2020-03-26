@@ -24,7 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
-  dropdown_formfield:
+  material_dropdown_formfield:
     path: ../
 
 dev_dependencies:
