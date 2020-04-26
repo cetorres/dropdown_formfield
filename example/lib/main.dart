@@ -86,17 +86,18 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Container(
+                color: Colors.black,
                 padding: EdgeInsets.all(16),
                 child: DropDownFormField(
-
+                  backgroungColor: Colors.green,
                   wedgeIcon: Icon(Icons.keyboard_arrow_down),
                   wedgeColor: Colors.lightBlue,
-                  innerTextStyle: TextStyle(color: Colors.blue),
+                  innerTextStyle: TextStyle(color: Colors.white),
                   focusNode: focusNode,
                   inputDecoration: OutlinedDropDownDecoration(
-                      labelStyle: TextStyle(color: Colors.green),
+                      labelStyle: TextStyle(color: Colors.white),
                       labelText: "Welcome to island",
-                      borderColor: Colors.purple),
+                      borderColor: Colors.white),
                   hintText: 'Please choose one',
                   value: _myActivity,
                   onSaved: (value) {
