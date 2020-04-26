@@ -23,22 +23,22 @@ this plugin is improved version of [dropdown_formfield](https://github.com/cetor
 
 ## Api and Options
 DropDownFormField
-    String titleText:-provide labelText
-    String hintText:-provide hint 
-    bool required:-field required or no
-    String errorText:-error text
-    dynamic value:-initial source value
-    List dataSource:-list of options
-    String textField:-field to show text 
-    String valueField:-field to target for value
-    Function onChanged:-fired when value changes
-    bool filled
-    FocusNode focusNode
-    InputDecoration inputDecoration
-    TextStyle innerTextStyle:-inner text style of dropdown
-    Color wedgeColor:-dropdown wedge color
-    Color disabledWedgeColor:-wedge color to be shown when dropdown disabled
-    Icon wedgeIcon:- icon of wedge default:-(Icon(Icons.arrow_drop_down))
+    **String titleText**:-provide labelText  
+    **String hintText**:-provide hint   
+    **bool required**:-field required or no  
+    **String errorText**:-error text  
+    **dynamic value**:-initial source value  
+    **List dataSource**:-list of options  
+    **String textField**:-field to show text   
+    **String valueField**:-field to target for value  
+    **Function onChanged**:-fired when value changes  
+    **bool filled**    
+    **FocusNode focusNode**    
+    **InputDecoration inputDecoration**:-can be OutlinedDropDownDecoration,RoundedDropDownDecoration or your own custom InputDecoration    
+    **TextStyle innerTextStyle**:-inner text style of dropdown    
+    **Color wedgeColor**:-dropdown wedge color    
+    **Color disabledWedgeColor**:-wedge color to be shown when dropdown disabled    
+    **Icon wedgeIcon**:- icon of wedge default:-(Icon(Icons.arrow_drop_down))    
 
 
 ## Example
