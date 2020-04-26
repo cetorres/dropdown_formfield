@@ -97,7 +97,7 @@ class DropDownFormField extends FormField<dynamic> {
   final InputDecoration inputDecoration;
   final TextStyle innerTextStyle;
   final Color wedgeColor;
-  final Color backgroungColor;
+  final Color innerBackgroundColor;
   final Color disabledWedgeColor;
   final Icon wedgeIcon;
 
@@ -121,14 +121,14 @@ class DropDownFormField extends FormField<dynamic> {
     this.wedgeColor,
     this.wedgeIcon,
     this.disabledWedgeColor,
-    this.backgroungColor
+    this.innerBackgroundColor
   }) :super(validator: validator,
       onSaved: onSaved,
       autovalidate: autovalidate,
       initialValue: value == '' ? null : value,
       builder: (FormFieldState<dynamic> state) {
         return
-          Theme(data: ThemeData(canvasColor: backgroungColor ?? Colors.white),
+          Theme(data: ThemeData(canvasColor:innerBackgroundColor?? Colors.white),
               child:
               Container(
                 child: Column(

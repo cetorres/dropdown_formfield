@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.black,
                 padding: EdgeInsets.all(16),
                 child: DropDownFormField(
-                  backgroungColor: Colors.green,
+                 innerBackgroundColor: Colors.green,
                   wedgeIcon: Icon(Icons.keyboard_arrow_down),
                   wedgeColor: Colors.lightBlue,
                   innerTextStyle: TextStyle(color: Colors.white),
