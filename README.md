@@ -23,6 +23,7 @@ this plugin is improved version of [dropdown_formfield](https://github.com/cetor
 
 ## Api and Options
 DropDownFormField  
+    **Color innerBackgroundColor**:-inner background color of dropdownformfield
     **String titleText**:-provide labelText  
     **String hintText**:-provide hint   
     **bool required**:-field required or no  
