@@ -22,7 +22,7 @@ this plugin is improved version of [dropdown_formfield](https://github.com/cetor
 2. RoundedDropDownDecoration inherits InputDecoration
 
 ## Api and Options
-DropDownFormField
+DropDownFormField  
     **String titleText**:-provide labelText  
     **String hintText**:-provide hint   
     **bool required**:-field required or no  
