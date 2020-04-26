@@ -11,6 +11,8 @@ class RoundedDropDownDecoration extends InputDecoration {
   final Color borderColor;
   final BorderRadius borderRadius;
   final double borderWidth;
+  final BorderStyle borderStyle;
+  final TextStyle labelStyle;
 
   RoundedDropDownDecoration({
     @required this.labelText,
@@ -19,24 +21,20 @@ class RoundedDropDownDecoration extends InputDecoration {
     this.labelGap,
     this.borderColor,
     this.borderRadius,
-    this.borderWidth})
-      :super(labelStyle: TextStyle(
+    this.borderWidth,
+    this.borderStyle,
+    this.labelStyle
+  })
+      :super(labelStyle: labelStyle ?? TextStyle(
       fontSize: fontSize ?? 14,
       textBaseline: TextBaseline.ideographic),
-      focusedBorder: OutlineInputBorder(
-          gapPadding: 1,
-          borderSide: BorderSide(
-              color: Colors.blue,
-              width: 3,
-              style: BorderStyle.solid),
-          borderRadius: BorderRadius.circular(60)),
-      border: OutlineInputBorder(
-          gapPadding: labelGap ??0,
+      enabledBorder: OutlineInputBorder(
+          gapPadding: labelGap ?? 0,
           borderSide: BorderSide(
               color: borderColor ?? Colors.black,
               width: borderWidth ?? 1,
-              style: BorderStyle.solid),
-          borderRadius: borderRadius ?? BorderRadius.circular(25)),
+              style: borderStyle ?? BorderStyle.solid),
+          borderRadius: BorderRadius.circular(borderRadius ?? 25)),
       contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
       labelText: labelText ?? "Title",
       filled: filled ?? false);
@@ -52,6 +50,8 @@ class OutlinedDropDownDecoration extends InputDecoration {
   final Color borderColor;
   final BorderRadius borderRadius;
   final double borderWidth;
+  final BorderStyle borderStyle;
+  final TextStyle labelStyle;
 
   OutlinedDropDownDecoration({
     @required this.labelText,
@@ -60,24 +60,20 @@ class OutlinedDropDownDecoration extends InputDecoration {
     this.labelGap,
     this.borderColor,
     this.borderRadius,
-    this.borderWidth})
-      :super(labelStyle: TextStyle(
+    this.borderWidth,
+    this.borderStyle,
+    this.labelStyle
+  })
+      :super(labelStyle: labelStyle??TextStyle(
       fontSize: fontSize ?? 14,
       textBaseline: TextBaseline.ideographic),
-      focusedBorder: OutlineInputBorder(
-          gapPadding: 2,
-          borderSide: BorderSide(
-              color: Colors.blue,
-              width: 3,
-              style: BorderStyle.solid),
-          borderRadius: BorderRadius.circular(0)),
-      border: OutlineInputBorder(
-          gapPadding: labelGap ?? 5,
+      enabledBorder: OutlineInputBorder(
+          gapPadding: labelGap ?? 3,
           borderSide: BorderSide(
               color: borderColor ?? Colors.black,
               width: borderWidth ?? 1,
-              style: BorderStyle.solid),
-          borderRadius: borderRadius ?? BorderRadius.circular(0)),
+              style: borderStyle ?? BorderStyle.solid),
+          borderRadius: borderRadius ?? BorderRadius.circular(5)),
       contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
       labelText: labelText ?? "Title",
       filled: filled ?? false);
@@ -97,7 +93,12 @@ class DropDownFormField extends FormField<dynamic> {
   final String valueField;
   final Function onChanged;
   final bool filled;
-  InputDecoration inputDecoration;
+  final FocusNode focusNode;
+  final InputDecoration inputDecoration;
+  final TextStyle innerTextStyle;
+  final Color wedgeColor;
+  final Color disabledWedgeColor;
+  final Icon wedgeIcon;
 
 
   DropDownFormField({FormFieldSetter<dynamic> onSaved,
@@ -109,17 +110,23 @@ class DropDownFormField extends FormField<dynamic> {
     this.errorText = 'Please select one option',
     this.value,
     this.dataSource,
+    this.focusNode,
     this.textField,
     this.valueField,
     this.onChanged,
     this.filled = true,
+    this.innerTextStyle,
     this.inputDecoration,
+    this.wedgeColor,
+    this.wedgeIcon,
+    this.disabledWedgeColor
   }) :super(validator: validator,
       onSaved: onSaved,
       autovalidate: autovalidate,
       initialValue: value == '' ? null : value,
       builder: (FormFieldState<dynamic> state) {
-        return Container(
+        return
+          Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -131,6 +138,10 @@ class DropDownFormField extends FormField<dynamic> {
                 ),
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<dynamic>(
+                    icon: wedgeIcon ?? Icon(Icons.arrow_drop_down),
+                    iconEnabledColor: wedgeColor ?? Colors.black,
+                    iconDisabledColor: disabledWedgeColor ?? Colors.grey,
+                    focusNode: focusNode,
                     hint: Text(
                       hintText,
                       style: TextStyle(color: Colors.grey.shade500),
@@ -143,7 +154,7 @@ class DropDownFormField extends FormField<dynamic> {
                     items: dataSource.map((item) {
                       return DropdownMenuItem<dynamic>(
                         value: item[valueField],
-                        child: Text(item[textField]),
+                        child: Text(item[textField], style: innerTextStyle,),
                       );
                     }).toList(),
                   ),
@@ -157,7 +168,7 @@ class DropDownFormField extends FormField<dynamic> {
               ),
             ],
           ),
-        );
+          );
       });
 
 }

@@ -17,11 +17,35 @@ this plugin is improved version of [dropdown_formfield](https://github.com/cetor
 - Provides requirement of the field.
 - Follows the app theme and colors.
 
+## Helper Classes for customizing look and feel of dropdownbutton
+1. OutlinedDropDownDecoration inherits InputDecoration
+2. RoundedDropDownDecoration inherits InputDecoration
+
+## Api and Options
+DropDownFormField
+    String titleText:-provide labelText
+    String hintText:-provide hint 
+    bool required:-field required or no
+    String errorText:-error text
+    dynamic value:-initial source value
+    List dataSource:-list of options
+    String textField:-field to show text 
+    String valueField:-field to target for value
+    Function onChanged:-fired when value changes
+    bool filled
+    FocusNode focusNode
+    InputDecoration inputDecoration
+    TextStyle innerTextStyle:-inner text style of dropdown
+    Color wedgeColor:-dropdown wedge color
+    Color disabledWedgeColor:-wedge color to be shown when dropdown disabled
+    Icon wedgeIcon:- icon of wedge default:-(Icon(Icons.arrow_drop_down))
+
+
 ## Example
 
 ```dart
 import 'package:flutter/material.dart';
-import 'material_dropdown_formfield.dart';
+import 'package:material_dropdown_formfield/material_dropdown_formfield.dart';
 
 void main() => runApp(MyApp());
 
@@ -42,6 +66,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String _myActivity;
   String _myActivityResult;
+  FocusNode focusNode = FocusNode();
   final formKey = new GlobalKey<FormState>();
   List dataSource=[
     {
@@ -79,6 +104,10 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _myActivity = '';
     _myActivityResult = '';
+    focusNode.addListener(() {
+      focusNode.unfocus(disposition: UnfocusDisposition.previouslyFocusedChild);
+//      focusNode.
+    });
   }
 
   _saveForm() {
@@ -105,7 +134,15 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 padding: EdgeInsets.all(16),
                 child: DropDownFormField(
-                 inputDecoration: OutlinedDropDownDecoration(labelText:"Welcome to island"),
+
+                  wedgeIcon: Icon(Icons.keyboard_arrow_down),
+                  wedgeColor: Colors.lightBlue,
+                  innerTextStyle: TextStyle(color: Colors.blue),
+                  focusNode: focusNode,
+                  inputDecoration: OutlinedDropDownDecoration(
+                      labelStyle: TextStyle(color: Colors.green),
+                      labelText: "Welcome to island",
+                      borderColor: Colors.purple),
                   hintText: 'Please choose one',
                   value: _myActivity,
                   onSaved: (value) {
@@ -184,7 +221,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
 ```
 
 ## License

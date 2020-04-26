@@ -20,6 +20,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String _myActivity;
   String _myActivityResult;
+  FocusNode focusNode = FocusNode();
   final formKey = new GlobalKey<FormState>();
   List dataSource=[
     {
@@ -57,6 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _myActivity = '';
     _myActivityResult = '';
+    focusNode.addListener(() {
+      focusNode.unfocus(disposition: UnfocusDisposition.previouslyFocusedChild);
+//      focusNode.
+    });
   }
 
   _saveForm() {
@@ -83,7 +88,15 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 padding: EdgeInsets.all(16),
                 child: DropDownFormField(
-                 inputDecoration: OutlinedDropDownDecoration(labelText:"Welcome to island"),
+
+                  wedgeIcon: Icon(Icons.keyboard_arrow_down),
+                  wedgeColor: Colors.lightBlue,
+                  innerTextStyle: TextStyle(color: Colors.blue),
+                  focusNode: focusNode,
+                  inputDecoration: OutlinedDropDownDecoration(
+                      labelStyle: TextStyle(color: Colors.green),
+                      labelText: "Welcome to island",
+                      borderColor: Colors.purple),
                   hintText: 'Please choose one',
                   value: _myActivity,
                   onSaved: (value) {
