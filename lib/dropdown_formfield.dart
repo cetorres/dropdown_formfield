@@ -13,6 +13,7 @@ class DropDownFormField extends FormField<dynamic> {
   final String valueField;
   final Function onChanged;
   final bool filled;
+  final EdgeInsets contentPadding;
 
   DropDownFormField(
       {FormFieldSetter<dynamic> onSaved,
@@ -27,7 +28,8 @@ class DropDownFormField extends FormField<dynamic> {
       this.textField,
       this.valueField,
       this.onChanged,
-      this.filled = true})
+      this.filled = true,
+      this.contentPadding = const EdgeInsets.fromLTRB(12, 12, 8, 0)})
       : super(
           onSaved: onSaved,
           validator: validator,
@@ -40,7 +42,7 @@ class DropDownFormField extends FormField<dynamic> {
                 children: <Widget>[
                   InputDecorator(
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
+                      contentPadding: contentPadding,
                       labelText: titleText,
                       filled: filled,
                     ),
