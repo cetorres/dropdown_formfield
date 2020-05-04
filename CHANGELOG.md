@@ -1,3 +1,6 @@
+## [0.1.4]-04/27/2020
+* added innerbackground color
+
 ## [0.1.2]-04/26/2020
 * improvised api and options
  
