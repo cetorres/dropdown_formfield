@@ -141,6 +141,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: DropDownFormField(
                   inputDecoration:
                       RoundedDropDownDecoration(labelText: "Welcome to island"),
+                  innerBackgroundColor: Colors.orange,
+                  wedgeColor: Colors.orange,
+                  wedgeIcon: Icon(Icons.arrow_downward),
+                  innerTextStyle: TextStyle(color: Colors.green),
                   hintText: 'Please choose one',
                   value: _myActivity,
                   onSaved: (value) {
