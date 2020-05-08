@@ -96,6 +96,7 @@ class DropDownFormField extends FormField<dynamic> {
   final Color innerBackgroundColor;
   final Color disabledWedgeColor;
   final Icon wedgeIcon;
+  final EdgeInsets contentPadding;
 
   DropDownFormField(
       {FormFieldSetter<dynamic> onSaved,
@@ -173,6 +174,28 @@ class DropDownFormField extends FormField<dynamic> {
                           style: TextStyle(
                               color: Colors.redAccent.shade700,
                               fontSize: state.hasError ? 12.0 : 0.0),
+      this.contentPadding = const EdgeInsets.fromLTRB(12, 12, 8, 0)})
+      : super(
+          onSaved: onSaved,
+          validator: validator,
+          autovalidate: autovalidate,
+          initialValue: value == '' ? null : value,
+          builder: (FormFieldState<dynamic> state) {
+            return Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  InputDecorator(
+                    decoration: InputDecoration(
+                      contentPadding: contentPadding,
+                      labelText: titleText,
+                      filled: filled,
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton<dynamic>(
+                        hint: Text(
+                          hintText,
+                          style: TextStyle(color: Colors.grey.shade500),
                         ),
                       ],
                     ),
