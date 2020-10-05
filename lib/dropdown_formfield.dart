@@ -81,7 +81,8 @@ class DropDownFormField extends FormField<dynamic> {
                   SizedBox(height: state.hasError ? 5.0 : 0.0),
                   Text(
                     state.hasError ? state.errorText : '',
-                    style: decoration.errorStyle ??
+                    style: decoration.errorStyle
+                            .copyWith(fontSize: state.hasError ? 12.0 : 0.0) ??
                         TextStyle(
                             color: Colors.redAccent.shade700,
                             fontSize: state.hasError ? 12.0 : 0.0),
