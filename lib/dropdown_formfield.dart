@@ -43,10 +43,7 @@ class DropDownFormField extends FormField<dynamic> {
                   InputDecorator(
                     decoration: InputDecoration(
                       contentPadding: contentPadding,
-                      labelText: Text(
-                          titleText,
-                          style: TextStyle(color: Colors.white),
-                        ),
+                      labelText: 'test',
                       filled: filled,
                     ),
                     child: DropdownButtonHideUnderline(
