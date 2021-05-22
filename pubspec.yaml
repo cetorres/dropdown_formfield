@@ -5,7 +5,8 @@ author: Carlos E. Torres <cetorres@cetorres.com>
 homepage: https://github.com/cetorres/dropdown_formfield
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
