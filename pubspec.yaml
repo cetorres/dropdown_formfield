@@ -1,6 +1,6 @@
 name: dropdown_formfield
 description: A dropdown form field using a dropdown button inside a form field.
-version: 0.1.3
+version: 0.1.4
 author: Carlos E. Torres <cetorres@cetorres.com>
 homepage: https://github.com/cetorres/dropdown_formfield
 

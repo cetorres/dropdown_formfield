@@ -1,3 +1,7 @@
+## [0.1.4] - 12/18/2021
+
+* Compatibility with Flutter 2.8.0.
+
 ## [0.1.3] - 09/21/2020
 
 * Bugfix: Long texts will be cropped.
