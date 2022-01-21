@@ -38,7 +38,7 @@ class DropDownFormField extends FormField<dynamic> {
           builder: (FormFieldState<dynamic> state) {
             return Container(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
                   InputDecorator(
                     decoration: InputDecoration(
