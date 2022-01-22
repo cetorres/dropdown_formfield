@@ -51,6 +51,7 @@ class DropDownFormField extends FormField<dynamic> {
                     children: <Widget>[
                       Container(
                         child: Text(
+						 textDirection: TextDirection.rtl,
                           titleText,
                           style: TextStyle(color: Colors.grey.shade700),
                         ),
@@ -63,6 +64,7 @@ class DropDownFormField extends FormField<dynamic> {
                             hint: Container(
                               alignment: textAlign,
                               child: Text(
+							   textDirection: TextDirection.rtl,
                                 hintText,
                                 style: TextStyle(color: Colors.grey.shade500),
                               ),
@@ -78,6 +80,7 @@ class DropDownFormField extends FormField<dynamic> {
                                 child: Container(
                                   alignment: textAlign,
                                   child: Text(item[textField],
+								      textDirection: TextDirection.rtl,
                                       overflow: TextOverflow.ellipsis),
                                 ),
                               );
