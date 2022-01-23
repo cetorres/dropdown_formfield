@@ -56,9 +56,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: EdgeInsets.all(16),
                 child: DropDownFormField(
                   backgroundColor: Colors.grey.shade200,
-                  textAlign: Alignment.centerRight,
-                  titleText: 'الفئة الريسية',
-                  hintText: 'اختر واحدة',
+                  titleBackgroundColor: Colors.grey.shade300,
+                  textAlign: Alignment.centerLeft,
+                  titleText: 'Choose model',
+                  hintText: 'Pick one',
                   value: _myActivity,
                   onSaved: (value) {
                     setState(() {
@@ -72,31 +73,31 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   dataSource: [
                     {
-                      "display": "واحد",
+                      "display": "one",
                       "value": "1",
                     },
                     {
-                      "display": "اثنان",
+                      "display": "two",
                       "value": "2",
                     },
                     {
-                      "display": "ثلاثة",
+                      "display": "three",
                       "value": "3",
                     },
                     {
-                      "display": "اربعة",
+                      "display": "four",
                       "value": "4",
                     },
                     {
-                      "display": "خمسة",
+                      "display": "five",
                       "value": "5",
                     },
                     {
-                      "display": "ستة",
+                      "display": "six",
                       "value": "6",
                     },
                     {
-                      "display": "سبعة",
+                      "display": "seven",
                       "value": "7",
                     },
                   ],
