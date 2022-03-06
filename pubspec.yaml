@@ -1,11 +1,10 @@
 name: dropdown_formfield
 description: A dropdown form field using a dropdown button inside a form field.
 version: 0.1.4
-author: Carlos E. Torres <cetorres@cetorres.com>
 homepage: https://github.com/cetorres/dropdown_formfield
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.15.0 <3.0.0"
 
 dependencies:
   flutter:

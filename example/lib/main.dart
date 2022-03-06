@@ -52,10 +52,14 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Container(
+                alignment: Alignment.centerRight,
                 padding: EdgeInsets.all(16),
                 child: DropDownFormField(
-                  titleText: 'My workout',
-                  hintText: 'Please choose one',
+                  backgroundColor: Colors.grey.shade200,
+                  titleBackgroundColor: Colors.grey.shade300,
+                  textAlign: Alignment.centerLeft,
+                  titleText: 'Choose model',
+                  hintText: 'Pick one',
                   value: _myActivity,
                   onSaved: (value) {
                     setState(() {
@@ -69,32 +73,32 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   dataSource: [
                     {
-                      "display": "Running",
-                      "value": "Running",
+                      "display": "one",
+                      "value": "1",
                     },
                     {
-                      "display": "Climbing",
-                      "value": "Climbing",
+                      "display": "two",
+                      "value": "2",
                     },
                     {
-                      "display": "Walking",
-                      "value": "Walking",
+                      "display": "three",
+                      "value": "3",
                     },
                     {
-                      "display": "Swimming",
-                      "value": "Swimming",
+                      "display": "four",
+                      "value": "4",
                     },
                     {
-                      "display": "Soccer Practice",
-                      "value": "Soccer Practice",
+                      "display": "five",
+                      "value": "5",
                     },
                     {
-                      "display": "Baseball Practice",
-                      "value": "Baseball Practice",
+                      "display": "six",
+                      "value": "6",
                     },
                     {
-                      "display": "Football Practice",
-                      "value": "Football Practice",
+                      "display": "seven",
+                      "value": "7",
                     },
                   ],
                   textField: 'display',
