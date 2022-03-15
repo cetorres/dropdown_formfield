@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class DropDownFormField extends FormField<dynamic> {
   final String titleText;
   final String hintText;
+  // Show people can change color of hintText
+  final Color hintTextColor;
   final bool required;
   final String errorText;
   final dynamic value;
@@ -51,7 +53,7 @@ class DropDownFormField extends FormField<dynamic> {
                         isExpanded: true,
                         hint: Text(
                           hintText,
-                          style: TextStyle(color: Colors.grey.shade500),
+                          style: TextStyle(color: hintTextColor,
                         ),
                         value: value == '' ? null : value,
                         onChanged: (dynamic newValue) {
