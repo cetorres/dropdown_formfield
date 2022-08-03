@@ -13,6 +13,7 @@ class DropDownFormField extends FormField<dynamic> {
   final List dataSource;
   final String textField;
   final String valueField;
+  final String iconField;
   final Function onChanged;
   final bool filled;
   final EdgeInsets contentPadding;
@@ -35,6 +36,7 @@ class DropDownFormField extends FormField<dynamic> {
       this.dataSource,
       this.textField,
       this.valueField,
+      this.iconField,
       this.onChanged,
       this.filled = true,
       this.decoration,
