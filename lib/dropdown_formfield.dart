@@ -14,6 +14,9 @@ class DropDownFormField extends FormField<dynamic> {
   final Function onChanged;
   final bool filled;
   final EdgeInsets contentPadding;
+  final InputDecoration decoration;
+  final TextStyle hintStyle;
+  final TextStyle errorStyle;
 
   DropDownFormField(
       {FormFieldSetter<dynamic> onSaved,
@@ -21,14 +24,17 @@ class DropDownFormField extends FormField<dynamic> {
       AutovalidateMode autovalidate = AutovalidateMode.disabled,
       this.titleText = 'Title',
       this.hintText = 'Select one option',
+      this.hintStyle,
       this.required = false,
       this.errorText = 'Please select one option',
+      this.errorStyle,
       this.value,
       this.dataSource,
       this.textField,
       this.valueField,
       this.onChanged,
       this.filled = true,
+      this.decoration,
       this.contentPadding = const EdgeInsets.fromLTRB(12, 12, 8, 0)})
       : super(
           onSaved: onSaved,
@@ -41,17 +47,19 @@ class DropDownFormField extends FormField<dynamic> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   InputDecorator(
-                    decoration: InputDecoration(
-                      contentPadding: contentPadding,
-                      labelText: titleText,
-                      filled: filled,
-                    ),
+                    decoration: decoration ??
+                        InputDecoration(
+                          contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
+                          labelText: titleText,
+                          filled: true,
+                        ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<dynamic>(
                         isExpanded: true,
                         hint: Text(
                           hintText,
-                          style: TextStyle(color: Colors.grey.shade500),
+                           style: hintStyle ??
+                              TextStyle(color: Colors.grey.shade500),
                         ),
                         value: value == '' ? null : value,
                         onChanged: (dynamic newValue) {
@@ -71,9 +79,10 @@ class DropDownFormField extends FormField<dynamic> {
                   SizedBox(height: state.hasError ? 5.0 : 0.0),
                   Text(
                     state.hasError ? state.errorText : '',
-                    style: TextStyle(
-                        color: Colors.redAccent.shade700,
-                        fontSize: state.hasError ? 12.0 : 0.0),
+                    style: errorStyle ??
+                        TextStyle(
+                            color: Colors.redAccent.shade700,
+                            fontSize: state.hasError ? 12.0 : 0.0),
                   ),
                 ],
               ),
