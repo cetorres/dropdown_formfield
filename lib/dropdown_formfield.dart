@@ -1,5 +1,6 @@
 library dropdown_formfield;
 
+import 'package:dropdown_formfield/dropdown_menu_button.dart';
 import 'package:flutter/material.dart';
 
 class DropDownFormField extends FormField<dynamic> {
@@ -57,26 +58,31 @@ class DropDownFormField extends FormField<dynamic> {
                           filled: true,
                         ),
                     child: DropdownButtonHideUnderline(
-                      child: DropdownButton<dynamic>(
-                        isExpanded: true,
-                        hint: Text(
-                          hintText,
-                           style: hintStyle ??
-                              TextStyle(color: Colors.grey.shade500),
-                        ),
-                        value: value == '' ? null : value,
-                        onChanged: (dynamic newValue) {
-                          state.didChange(newValue);
-                          onChanged(newValue);
-                        },
-                        items: dataSource.map((item) {
-                          return DropdownMenuItem<dynamic>(
-                            value: item[valueField],
-                            child: Text(item[textField],
-                                overflow: TextOverflow.ellipsis),
-                          );
-                        }).toList(),
-                      ),
+                     child: !enabled
+                          ? IgnorePointer(
+                              child: DropdownMenuButton(
+                                  hintText: hintText,
+                                  hintStyle: hintStyle,
+                                  value: value,
+                                  state: state,
+                                  onChanged: onChanged,
+                                  dataSource: dataSource,
+                                  valueField: valueField,
+                                  iconField: iconField,
+                                  textField: textField,
+                                  enabled: enabled),
+                            )
+                          : DropdownMenuButton(
+                              hintText: hintText,
+                              hintStyle: hintStyle,
+                              value: value,
+                              state: state,
+                              onChanged: onChanged,
+                              dataSource: dataSource,
+                              valueField: valueField,
+                              iconField: iconField,
+                              textField: textField,
+                              enabled: enabled),
                     ),
                   ),
                   SizedBox(height: state.hasError ? 5.0 : 0.0),
