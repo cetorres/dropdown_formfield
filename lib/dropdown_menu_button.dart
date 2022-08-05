@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 class DropdownMenuButton extends StatelessWidget {
-  final String hintText;
-  final TextStyle hintStyle;
+  final String? hintText;
+  final TextStyle? hintStyle;
   final value;
-  final FormFieldState state;
-  final Function onChanged;
-  final List dataSource;
-  final String valueField;
-  final String iconField;
-  final String textField;
-  final bool enabled;
+  final FormFieldState? state;
+  final Function? onChanged;
+  final List? dataSource;
+  final String? valueField;
+  final String? iconField;
+  final String? textField;
+  final bool? enabled;
 
   const DropdownMenuButton(
-      {Key key,
+      {Key? key,
       this.hintText,
       this.hintStyle,
       this.value,
@@ -29,21 +29,21 @@ class DropdownMenuButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return DropdownButton<dynamic>(
       hint: Text(
-        hintText,
+        hintText!,
         style: hintStyle ?? TextStyle(color: Colors.grey.shade600),
       ),
       value: value == '' ? null : value,
-      iconEnabledColor: !enabled
+      iconEnabledColor: !enabled!
           ? Colors.grey.shade500
-          : Theme.of(context).textTheme.bodyText1.color,
+          : Theme.of(context).textTheme.bodyText1!.color,
       onChanged: (dynamic newValue) {
-        state.didChange(newValue);
-        onChanged(newValue);
+        state!.didChange(newValue);
+        onChanged!(newValue);
       },
-      items: dataSource.map((item) {
+      items: dataSource!.map((item) {
         return DropdownMenuItem<dynamic>(
           value: item[valueField],
-          child: (iconField != null && iconField.isNotEmpty
+          child: (iconField != null && iconField!.isNotEmpty
               ? Row(
                   children: <Widget>[
                     item[iconField],
